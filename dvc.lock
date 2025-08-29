@@ -1,0 +1,42 @@
+schema: '2.0'
+stages:
+  data_load:
+    cmd: python data_loader/data_loader.py
+    deps:
+    - path: data_loader/data_loader.py
+      hash: md5
+      md5: 3c3e55ec8d249768768be665ddb7b4a4
+      size: 713
+    outs:
+    - path: data_loader/test.csv
+      hash: md5
+      md5: 5aff719ecd966bd56394b8ac14326eac
+      size: 295054
+    - path: data_loader/train.csv
+      hash: md5
+      md5: 68f2e9cf8d2d42bffc39471dc99ca4a9
+      size: 2315221
+  train:
+    cmd: python train_model.py
+    deps:
+    - path: data_loader/test.csv
+      hash: md5
+      md5: 5aff719ecd966bd56394b8ac14326eac
+      size: 295054
+    - path: data_loader/train.csv
+      hash: md5
+      md5: 68f2e9cf8d2d42bffc39471dc99ca4a9
+      size: 2315221
+    - path: train_model.py
+      hash: md5
+      md5: 73ff065190c0e99bc058ec6009cbba71
+      size: 2639
+    outs:
+    - path: models/log_model.pkl
+      hash: md5
+      md5: f164894db319faf2331c48104f610b00
+      size: 2980
+    - path: models/xgbc_model.pkl
+      hash: md5
+      md5: e55e9867ab439e524597e442ac5c8e2f
+      size: 123060

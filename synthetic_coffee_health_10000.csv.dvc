@@ -1,0 +1,5 @@
+outs:
+- md5: 890a18eed27167c94d11992d6adb131d
+  size: 750501
+  hash: md5
+  path: synthetic_coffee_health_10000.csv
